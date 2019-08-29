@@ -12,7 +12,10 @@ __Remember__ to set __secure__ file permissions.
 - domain private keys accessible to root only.
 - acme account key accessible to acme user only.
 
-The __acme user__ (which executes the renewal script) has to be able to __reload nginx__ via systemd!
+The __acme user__ (which executes the renewal script) has to be able to __reload nginx__ via systemd using sudo!
+```
+acme    ALL=(root) NOPASSWD: /bin/systemctl reload nginx
+```
 
 ## Cron
 ```/var/lib/acme-tiny/renew.sh 2>> /var/log/acme_tiny.log```
