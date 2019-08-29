@@ -17,5 +17,15 @@ The __acme user__ (which executes the renewal script) has to be able to __reload
 acme    ALL=(root) NOPASSWD: /bin/systemctl reload nginx
 ```
 
+## TLS Key, CSR, Certificate
+```
+openssl genrsa 4096 > /etc/ssl/private/example.com.pem
+
+# For single domain
+openssl req -new -sha256 -key /etc/ssl/private/example.com.pem -subj "/CN=example.com" > /var/lib/acme-tiny/csr/example.com.csr
+```
+
+Run script.
+
 ## Cron
 ```/var/lib/acme-tiny/renew.sh 2>> /var/log/acme_tiny.log```
