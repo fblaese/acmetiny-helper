@@ -2,6 +2,11 @@
 
 This repository contains the basic structure, nginx snippet and a renewal script for my acme-tiny setup.
 
+## Account Key
+```
+openssl genrsa 4096 > /var/lib/acme-tiny/letsencrypt/account.key
+```
+
 ## Permissions
 __Remember__ to set __secure__ file permissions.
 - domain private keys accessible to root only.
